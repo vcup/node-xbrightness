@@ -1,0 +1,11 @@
+{
+  "name": "xbrightness",
+  "version": "0.0.1",
+  "description": "xrandr base lib for change brightness",
+  "repository": "https://github.com/vcup/node-xbrightness",
+  "license": "LGPL",
+  "keywords": [],
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
+}
