@@ -2,18 +2,29 @@ import { execa } from 'execa';
 
 const xrandr = "xrandr";
 
-export const connectedDisplay = async () => {
-  const { stdout } = await execa(xrandr)
-  const connected = stdout.match(/.*-\d(?=\s+connected)/g); // match "eDP-1" of inside "eDP-1 connected primary screen"
-
-  if (connected === null) {
+function regexMatchToStringArray(array: RegExpMatchArray | null) {
+  if (array === null) {
     return [];
   }
 
-  const result = []
-  for (let index = 0; index < connected.length; index++) {
-    result.push(connected[index]);
+  const result = [];
+  for (let index = 0; index < array.length; index++) {
+    result.push(array[index]);
   }
 
   return result;
+}
+
+export async function connectedDisplay() {
+  const { stdout } = await execa(xrandr);
+  const matched = stdout.match(/.*-\d(?=\s+connected)/g); // match "eDP-1" of inside "eDP-1 connected primary screen"
+
+  return regexMatchToStringArray(matched);
+}
+
+export async function disconnectedDisplay() {
+  const { stdout } = await execa(xrandr);
+  const matched = stdout.match(/.*-\d(?=\s+disconnected)/g); // match "DP-1" of inside "DP-1 disconnected"
+
+  return regexMatchToStringArray(matched);
 }
