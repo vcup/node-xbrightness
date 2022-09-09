@@ -1,5 +1,6 @@
 {
   "name": "xbrightness",
+  "type": "module",
   "version": "0.0.1",
   "description": "xrandr base lib for change brightness",
   "repository": "https://github.com/vcup/node-xbrightness",
@@ -26,9 +27,6 @@
         "src/": "build/"
       },
       "compile": false
-    },
-    "extensions": {
-      "ts": "module"
     },
     "nodeArguments": [
       "--loader=ts-node/esm"
