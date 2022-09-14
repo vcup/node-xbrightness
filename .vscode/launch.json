@@ -9,7 +9,11 @@
         "<node_internals>/**/*.js"
       ],
       "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
-      "runtimeArgs": ["--break", "--serial", "${file}"],
+      "runtimeArgs": [
+        "--break",
+        "--serial",
+        "${file}"
+      ],
       "outputCapture": "std",
       //"preLaunchTask": "npm: build"
       "env": {
