@@ -1,9 +1,9 @@
 {
-  "name": "xbrightness",
+  "name": "node-xrandr",
   "type": "module",
   "version": "0.0.1",
   "description": "xrandr base lib for change brightness",
-  "repository": "https://github.com/vcup/node-xbrightness",
+  "repository": "https://github.com/vcup/node-xrandr",
   "license": "LGPL",
   "keywords": [],
   "scripts": {
