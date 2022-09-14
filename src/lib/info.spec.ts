@@ -1,8 +1,18 @@
 import test from 'ava';
 
-import { connectedDisplay } from "./info.js";
+import { connectedDisplay, disconnectedDisplay, primaryDisplay } from "./info.js";
 
 test("connectedDisplay_onlyGetConnectedDisplay", async t => {
     const result = await connectedDisplay();
-    t.assert(result.length !== 0)
-})
+    t.assert(result.length > 0);
+});
+
+test("disconnectedDisplay_onlyGetDisconnectedDisplay", async t => {
+    const result = await disconnectedDisplay();
+    t.assert(result.length > 0);
+});
+
+test("primaryDisplay_getPrimaryScreenId", async t => {
+    const result = await primaryDisplay();
+    t.assert(result.length > 0);
+});
