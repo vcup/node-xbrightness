@@ -9,13 +9,13 @@ async function setBrightness(screen: string, brightness: number) {
 }
 
 export async function setBrightnessFade(screen: string, brightness: number, time = 3) {
-    const step = 50; // ms
-    const totalTime = time * 1000; // ms
-    const count = totalTime / step;
-    if (count === 0) {
+    if (time === 0) {
         await setBrightness(screen, brightness);
         return;
     }
+    const step = 50; // ms
+    const totalTime = time * 1000; // ms
+    const count = totalTime / step;
     const brightness_step = Math.abs(current_brightness - brightness) / count;
     const is_negative = current_brightness > brightness;
     for (let i = 0; i < count; i++) {
