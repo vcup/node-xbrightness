@@ -25,3 +25,7 @@ export async function setBrightnessFade(screen: string, brightness: number, time
     }
     await setBrightness(screen, brightness);
 }
+
+export function getBrightness() {
+    return current_brightness;
+}
