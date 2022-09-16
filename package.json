@@ -1,13 +1,19 @@
 {
   "name": "node-xrandr",
-  "type": "module",
+  "author": "vcup",
+  "homepage": "https://github.com/vcup/node-xrandr#readme",
   "version": "0.0.1",
   "description": "xrandr base lib for change brightness",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vcup/node-xrandr.git"
   },
+  "bugs": {
+    "url": "https://github.com/vcup/node-xrandr/issues"
+  },
   "license": "LGPL",
+  "main": "build/index.js",
   "keywords": [],
   "scripts": {
     "build": "run-p build:*",
@@ -37,11 +43,5 @@
     "nodeArguments": [
       "--loader=ts-node/esm"
     ]
-  },
-  "bugs": {
-    "url": "https://github.com/vcup/node-xrandr/issues"
-  },
-  "homepage": "https://github.com/vcup/node-xrandr#readme",
-  "main": "index.js",
-  "author": "vcup"
+  }
 }
