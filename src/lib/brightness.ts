@@ -1,10 +1,10 @@
-import { execaCommand } from "execa";
+import { execSync } from 'child_process';
 
 let current_brightness = 1;
 
 async function setBrightness(screen: string, brightness: number) {
     const cmd = `xrandr --output ${screen} --brightness ${brightness})`;
-    await execaCommand(cmd);
+    execSync(cmd);
     current_brightness = brightness;
 }
 

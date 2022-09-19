@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import { connectedDisplay, disconnectedDisplay, primaryDisplay } from "./info.js";
+import { connectedDisplay, disconnectedDisplay, primaryDisplay } from "./info";
 
 test("connectedDisplay_onlyGetConnectedDisplay", async t => {
     const result = await connectedDisplay();

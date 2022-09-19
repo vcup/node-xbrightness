@@ -4,7 +4,7 @@
   "homepage": "https://github.com/vcup/node-xrandr#readme",
   "version": "0.0.3",
   "description": "xrandr base lib for change brightness",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vcup/node-xrandr.git"
@@ -13,11 +13,13 @@
     "url": "https://github.com/vcup/node-xrandr/issues"
   },
   "license": "LGPL",
-  "main": "build/index.js",
+  "main": "build/main/index.js",
+  "typings": "build/main/index.d.ts",
   "keywords": [],
   "scripts": {
     "build": "run-p build:*",
-    "build:main": "tsc -p tsconfig.json"
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json"
   },
   "dependencies": {
     "execa": "^6.1.0"
@@ -45,7 +47,7 @@
   "ava": {
     "typescript": {
       "rewritePaths": {
-        "src/": "build/"
+        "src/": "build/main/"
       },
       "compile": "tsc"
     },
