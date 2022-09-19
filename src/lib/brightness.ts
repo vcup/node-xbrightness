@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 let current_brightness = 1;
 
 async function setBrightness(screen: string, brightness: number) {
-    const cmd = `xrandr --output ${screen} --brightness ${brightness})`;
+    const cmd = "xrandr --output "+screen+" --brightness "+brightness;
     execSync(cmd);
     current_brightness = brightness;
 }
