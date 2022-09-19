@@ -17,7 +17,7 @@
       "outputCapture": "std",
       //"preLaunchTask": "npm: build"
       "env": {
-        "DISPLAY": "" // get this value from command echo $DISPLAY
+        "DISPLAY": ":0" // get this value from command echo $DISPLAY
       }
     }
   ]
