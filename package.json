@@ -2,7 +2,7 @@
   "name": "node-xrandr",
   "author": "vcup",
   "homepage": "https://github.com/vcup/node-xrandr#readme",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "xrandr base lib for change brightness",
   "type": "commonjs",
   "repository": {
@@ -21,8 +21,7 @@
     "build:main": "tsc -p tsconfig.json",
     "build:module": "tsc -p tsconfig.module.json"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@ava/typescript": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
