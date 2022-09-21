@@ -2,7 +2,7 @@
   "name": "node-xrandr",
   "author": "vcup",
   "homepage": "https://github.com/vcup/node-xrandr#readme",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "xrandr base lib for change brightness",
   "type": "commonjs",
   "repository": {
