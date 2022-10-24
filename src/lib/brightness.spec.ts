@@ -1,10 +1,10 @@
 import test from "ava";
-import { setBrightnessFade } from "./brightness.js";
-import { primaryDisplay } from "./info.js";
+import { setBrightnessFade } from "./brightness";
+import { primaryDisplay } from "./info";
 
 test("setBrightness", async t => {
-  await setBrightnessFade(await primaryDisplay(), 0, 0);
-  await setBrightnessFade(await primaryDisplay(), 1, 1);
+  await setBrightnessFade(primaryDisplay(), 0, 0);
+  await setBrightnessFade(primaryDisplay(), 1, 1);
 
   t.pass()
 })

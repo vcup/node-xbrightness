@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { mode } from "../types/mode.js";
+import { mode } from "../types/mode";
 
 const xrandr = "xrandr";
 

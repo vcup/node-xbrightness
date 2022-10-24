@@ -1,5 +1,5 @@
 import test from 'ava';
-import { primaryDisplay, getDisplayModes } from "./info.js"
+import { primaryDisplay, getDisplayModes } from "./info"
 import { FoundNearResolution } from "./display";
 
 test("FoundNearResolution", t => {
