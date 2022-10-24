@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { mode } from "../types/mode.js";
 
 const xrandr = "xrandr";
 
@@ -36,4 +37,38 @@ export async function disconnectedDisplay() {
   return regexMatchToStringArray(matched);
 }
 
+export function getDisplayModes(source: string): mode[] {
+  var stdout: string = execSync(xrandr).toString();
+  var stdout_s = stdout.split('\n');
+  var gotSource = false;
+  var result = [];
+  for (let index = 0; index < stdout_s.length; index++) {
+    const element = stdout_s[index];
+    const reSource = /^[^\s]*(?=\s)/;
+    const reResolution = /\s+\d+x\d+\s+[-+]?[0-9]*\.?[0-9]+.*/;
+    if (gotSource && !reResolution.test(element) && reSource.test(element) && element.startsWith(source)) gotSource = false;
+    if (!gotSource && element.startsWith(source)) gotSource = true;
+    if (!gotSource || !reResolution.test(element)) continue;
 
+    const mode = {} as mode;
+    mode.IsCurrent = /\*/.test(element);
+    mode.IsOptimal = /\+/.test(element);
+    mode.FrameRates = [];
+
+    const sourceModeInfo = element.split(/\s+/)
+    for (let index = 0; index < sourceModeInfo.length; index++) {
+      const element = sourceModeInfo[index];
+      if (element === '' || element === '+' || element === '*') continue;
+      else if (index === 1) mode.Resolution = element;
+      else if (index === 2) {
+        var fr = Number.parseFloat(element)
+        mode.FrameRates.push(fr);
+        mode.DefaultFrameRate = fr;
+      }
+      else mode.FrameRates.push(Number.parseFloat(element));
+    }
+    result.push(mode);
+  }
+
+  return result;
+}
