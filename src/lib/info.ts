@@ -16,21 +16,21 @@ function regexMatchToStringArray(array: RegExpMatchArray | null) {
   return result;
 }
 
-export async function primaryDisplay() {
+export function primaryDisplay() {
   const stdout = execSync(xrandr).toString();
   const matched = stdout.match(/.*-\d(?=\s+connected primary)/g)
 
   return regexMatchToStringArray(matched)[0];
 }
 
-export async function connectedDisplay() {
+export function connectedDisplay() {
   const stdout = execSync(xrandr).toString();
   const matched = stdout.match(/.*-\d(?=\s+connected)/g); // match "eDP-1" of inside "eDP-1 connected primary screen"
 
   return regexMatchToStringArray(matched);
 }
 
-export async function disconnectedDisplay() {
+export function disconnectedDisplay() {
   const stdout = execSync(xrandr).toString();
   const matched = stdout.match(/.*-\d(?=\s+disconnected)/g); // match "DP-1" of inside "DP-1 disconnected"
 
