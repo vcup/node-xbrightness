@@ -44,9 +44,8 @@ export function getDisplayModes(source: string): mode[] {
   var result = [];
   for (let index = 0; index < stdout_s.length; index++) {
     const element = stdout_s[index];
-    const reSource = /^[^\s]*(?=\s)/;
     const reResolution = /\s+\d+x\d+\s+[-+]?[0-9]*\.?[0-9]+.*/;
-    if (gotSource && !reResolution.test(element) && reSource.test(element) && element.startsWith(source)) gotSource = false;
+    if (gotSource && !reResolution.test(element) && /^[^\s]*(?=\s)/.test(element) && element.startsWith(source)) gotSource = false;
     if (!gotSource && element.startsWith(source)) gotSource = true;
     if (!gotSource || !reResolution.test(element)) continue;
 
@@ -59,12 +58,7 @@ export function getDisplayModes(source: string): mode[] {
     for (let index = 0; index < sourceModeInfo.length; index++) {
       const element = sourceModeInfo[index];
       if (element === '' || element === '+' || element === '*') continue;
-      else if (index === 1) mode.Resolution = element;
-      else if (index === 2) {
-        var fr = Number.parseFloat(element)
-        mode.FrameRates.push(fr);
-        mode.DefaultFrameRate = fr;
-      }
+      else if (/\d+x\d+/.test(element)) mode.Resolution = element;
       else mode.FrameRates.push(Number.parseFloat(element));
     }
     result.push(mode);
